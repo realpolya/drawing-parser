@@ -71,3 +71,10 @@ if len(vector_data) > 0:
                 print("Curve:", item)
 
 
+text = page.get_text("dict")
+
+for block in text["blocks"]:
+    if block["type"] == 0:
+        for line in block["lines"]:
+            for span in line["spans"]:
+                print(span["text"], span["bbox"])
