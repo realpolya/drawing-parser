@@ -62,10 +62,12 @@ if len(vector_data) > 0:
 
         for item in shape["items"]:
 
-            if item[0] == "1":
+            if item[0] == "l":
                 point1 = item[1]
                 point2 = item[2]
                 print("Line: ", point1, point2)
             
             if item[0] == "c":
                 print("Curve:", item)
+
+
