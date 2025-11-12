@@ -78,3 +78,23 @@ for block in text["blocks"]:
         for line in block["lines"]:
             for span in line["spans"]:
                 print(span["text"], span["bbox"])
+
+
+# save PDF as a png
+pix = page.get_pixmap(dpi=300) # dpi 
+# pix.save("page.png")
+
+
+# visualize the extracted
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+for s in vector_data:
+    for item in s["items"]:
+        if item[0] == "l":
+            x0, y0 = item[1]
+            x1, y1 = item[2]
+            ax.plot([x0, x1], [y0, y1], color='black')
+
+plt.gca().invert_yaxis()
+plt.show()
