@@ -25,7 +25,7 @@ from pdfminer.high_level import extract_pages, extract_text
 #     print(m)
 
 
-'''Extract image PyMuPDF'''
+'''Extract image PyMuPDF - https://pymupdf.readthedocs.io/en/latest/'''
 import fitz
 import PIL.Image
 import io
@@ -44,3 +44,14 @@ import io
 #         img.save(open(f"image{count}.{extension}", "wb"))
 #         count += 1
 
+# understand whether the file is a vector
+pdf = fitz.open("./data/sample.pdf")
+page = pdf[0]
+
+
+vector_data = page.get_drawings()
+
+# array of all vector shapes
+# len > 0: vector shapes
+# len == 0: pdf is an image, no vectors
+print("The number of vectors in the drawings: ", len(vector_data))
