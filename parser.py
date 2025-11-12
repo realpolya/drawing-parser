@@ -11,6 +11,13 @@ from pdfminer.high_level import extract_pages, extract_text
 text = extract_text("./data/sample.pdf")
 # print(text)
 
-pattern = re.compile(r"^[A-Z].*") # regex pattern for an uppercase letter start of string
-matches = pattern.findall(text)
+letter_pattern = re.compile(r"^[A-Z].*") # regex letter_pattern for an uppercase letter start of string
+matches = letter_pattern.findall(text)
 print(matches)
+
+dimension_pattern = re.compile(r"^\d+\'-\d+\"$", re.MULTILINE)
+dim_matches = dimension_pattern.findall(text)
+print(dim_matches)
+
+for m in dim_matches:
+    print(m)
