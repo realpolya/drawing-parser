@@ -1,4 +1,5 @@
 # starting a drawing parser code
+# lesson taught here: https://www.youtube.com/watch?v=w2r2Bg42UPY
 
 import re
 from pdfminer.high_level import extract_pages, extract_text
