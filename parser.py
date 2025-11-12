@@ -48,10 +48,24 @@ import io
 pdf = fitz.open("./data/sample.pdf")
 page = pdf[0]
 
-
 vector_data = page.get_drawings()
 
 # array of all vector shapes
 # len > 0: vector shapes
 # len == 0: pdf is an image, no vectors
 print("The number of vectors in the drawings: ", len(vector_data))
+
+if len(vector_data) > 0:
+    for shape in vector_data:
+
+        # print(shape)
+
+        for item in shape["items"]:
+
+            if item[0] == "1":
+                point1 = item[1]
+                point2 = item[2]
+                print("Line: ", point1, point2)
+            
+            if item[0] == "c":
+                print("Curve:", item)
