@@ -27,6 +27,8 @@ if len(vector_data) > 0:
     # each shape in the drawing
     for shape in vector_data:
 
+        print(shape)
+
         # for item in shape["items"]:
 
         #         # get lines
